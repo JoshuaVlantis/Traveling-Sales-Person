@@ -12,33 +12,44 @@ namespace Traveling_Sales_Person
 {
     public partial class Form1 : Form
     {
+        Bitmap bmp = new Bitmap(500, 500);
+
         public Form1()
         {
             InitializeComponent();
-            Bitmap bmp = new Bitmap(500, 500);
+        }
+
+        public void generatePointsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             DrawDot(bmp);
         }
 
         public void DrawDot(Bitmap bmp)
         {
 
-            Random rnd = new Random();
+            int x1;
+            int y1;
+            int x2;
+            int y2;
 
+            Random rnd = new Random();
             Pen redPen = new Pen(Color.Red, 5);
-            // for (int i = 1; i < 10; i++)
-            //{
-            int x1 = rnd.Next(1, 500);
-            int y1 = rnd.Next(1, 500);
-            int x2 = x1 + 5;
-            int y2 = y1;
-            // Draw line to screen.
-            using (var graphics = Graphics.FromImage(bmp))
+
+            for (int i = 1; i < 10; i++)
             {
-                graphics.DrawLine(redPen, x1, y1, x2, y2);
+
+                x1 = rnd.Next(1, 500);
+                y1 = rnd.Next(1, 500);
+                x2 = x1 + 5;
+                y2 = y1;
+
+                // Draw line to screen.
+                using (var graphics = Graphics.FromImage(bmp))
+                {
+                    graphics.DrawLine(redPen, x1, y1, x2, y2);
+                }
+                image.Image = bmp;
             }
-            image.Image = bmp;
-            // }
-            DrawLineInt(bmp, x1, y1);
         }
 
         //Draws line onto BMP
@@ -46,7 +57,7 @@ namespace Traveling_Sales_Person
         {
             Random rnd = new Random();
 
-            Pen blackPen = new Pen(Color.Black, 2);
+            Pen blackPen = new Pen(Color.White, 2);
 
             int ix1 = rnd.Next(1, 500);
             int iy1 = rnd.Next(1, 500);

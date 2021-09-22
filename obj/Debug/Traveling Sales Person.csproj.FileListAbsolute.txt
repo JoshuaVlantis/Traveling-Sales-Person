@@ -8,3 +8,13 @@ C:\Users\Joshua\Documents\Github\Traveling Sales Person\obj\Debug\Traveling Sale
 C:\Users\Joshua\Documents\Github\Traveling Sales Person\obj\Debug\Traveling Sales Person.csproj.CoreCompileInputs.cache
 C:\Users\Joshua\Documents\Github\Traveling Sales Person\obj\Debug\Traveling Sales Person.exe
 C:\Users\Joshua\Documents\Github\Traveling Sales Person\obj\Debug\Traveling Sales Person.pdb
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\bin\Debug\Traveling Sales Person.exe.config
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\bin\Debug\Traveling Sales Person.exe
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\bin\Debug\Traveling Sales Person.pdb
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sales Person.csproj.AssemblyReference.cache
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling_Sales_Person.Form1.resources
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling_Sales_Person.Properties.Resources.resources
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sales Person.csproj.GenerateResource.cache
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sales Person.csproj.CoreCompileInputs.cache
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sales Person.exe
+C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sales Person.pdb

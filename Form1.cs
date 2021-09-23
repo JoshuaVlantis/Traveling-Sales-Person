@@ -23,7 +23,7 @@ namespace Traveling_Sales_Person
 
         public void generatePointsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Thread tid1 = new Thread(new ThreadStart(Drawdot));
+            Thread tid1 = new Thread(new ThreadStart(Thread1));
             Thread tid2 = new Thread(new ThreadStart(Thread2));
 
             //tid1.Start();
@@ -34,6 +34,7 @@ namespace Traveling_Sales_Person
         {
             Graphics g = Graphics.FromImage(bmp);
             g.Clear(Color.FromArgb(40,40,40));
+            richTextBox1.Clear();
 
             int x1;
             int y1;
@@ -43,13 +44,14 @@ namespace Traveling_Sales_Person
             Random rnd = new Random();
             Pen redPen = new Pen(Color.Red, 5);
 
-            for (int i = 1; i < 10; i++)
+            for (int i = 0; i < 10 * 2; i++)
             {
 
                 x1 = rnd.Next(1, 500);
                 pos[i] = x1;
+                i++;
                 y1 = rnd.Next(1, 500);
-                pos[i + 1] = y1; 
+                pos[i] = y1; 
                 x2 = x1 + 5;
                 y2 = y1;
 
@@ -62,8 +64,15 @@ namespace Traveling_Sales_Person
                 //Thread.Sleep(10);
             }
             image.Image = bmp;
+            for (int i = 1; i < 10; i++)
+            {
+                richTextBox1.AppendText("X pos : " + pos[i].ToString() + "  \t" + " Y pos : "+ pos[i + i].ToString()  + "\n");
+            }
         }
+        public void Thread1()
+        {
 
+        }
         public void Thread2()
         {
 

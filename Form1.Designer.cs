@@ -61,15 +61,16 @@ namespace Traveling_Sales_Person
             this.goToolStripMenuItem.Name = "goToolStripMenuItem";
             this.goToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
             this.goToolStripMenuItem.Text = "Go";
+            this.goToolStripMenuItem.Click += new System.EventHandler(this.goToolStripMenuItem_Click);
             // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.Black;
             this.richTextBox1.ForeColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 387);
+            this.richTextBox1.Location = new System.Drawing.Point(0, 375);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(170, 140);
+            this.richTextBox1.Size = new System.Drawing.Size(170, 152);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 

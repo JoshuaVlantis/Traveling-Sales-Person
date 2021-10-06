@@ -12,7 +12,6 @@ namespace Traveling_Sales_Person
         int[,] shortestpos = new int[10,2];    //These cords will be used to stored the shortest path
         bool haspoints = false;
         int iloop = 0;
-
         public Form1()
         {
             InitializeComponent();
@@ -153,7 +152,7 @@ namespace Traveling_Sales_Person
             int x1;
             int y1;
             int x2;
-            int y2;
+            int y2; 
 
             Random rnd = new Random();
             Pen blackPen = new Pen(Color.White, 2);
@@ -191,27 +190,30 @@ namespace Traveling_Sales_Person
         }
         public void workoutpoints()
         {
-            int x1 = 0;
-            int y1 = 0;
-            int x2 = 0;
-            int y2 = 0;
+            int x1;
+            int y1;
+            int x2;
+            int y2;
             
             int xaxis;
             int yaxis;
 
-            double hypotenuse = 0;
+            double hypotenuse;
             double smallesthypotenuse = 0;
 
+            bool done = false;
+
             //Generates the first set of cords to be compared with all other cords
+            //TODO loop while true and step through
             for (iloop = 0; iloop < 10; iloop++)
             {
-                x1 = iloop;
-                y1 = iloop;
-
+                x1 = pos[iloop,0];
+                y1 = pos[iloop,1];
+                done = false;
                 for (int i = 0; i < 10; i++)
                 {
-                    x2 = i;
-                    y2 = i;
+                    x2 = pos[i,0];
+                    y2 = pos[i,1];
 
                     //X Gets distance between points
                     if (x1 > x2)
@@ -222,6 +224,7 @@ namespace Traveling_Sales_Person
                     {
                         xaxis = x2 - x1;
                     }
+
                     //Y Gets distance between points
                     if (y1 > y2)
                     {
@@ -235,7 +238,7 @@ namespace Traveling_Sales_Person
                     hypotenuse = (xaxis * xaxis) + (yaxis * yaxis);
                     hypotenuse = (Math.Sqrt(hypotenuse));
 
-                    if (hypotenuse <= smallesthypotenuse || iloop == 0)
+                    if (hypotenuse <= smallesthypotenuse || iloop == 0 || !done)
                     {
                         if (!alreadyused())
                         {
@@ -243,11 +246,13 @@ namespace Traveling_Sales_Person
 
                             shortestpos[iloop, 0] = x2;
                             shortestpos[iloop, 1] = y2;
+
+                            done = true;
                         }
                     }
                 }
             }
-
+            drawfinal();
         }
 
         public void Thread1()

@@ -11,7 +11,7 @@ namespace Traveling_Sales_Person
         int[,] pos = new int[10,2];            //Cords are stored in a 2d array (X cord on left, Y cord on right)
         int[,] shortestpos = new int[10,2];    //These cords will be used to stored the shortest path
         bool haspoints = false;
-        int iloop = 0;
+        int iloop;
         public Form1()
         {
             InitializeComponent();
@@ -194,7 +194,7 @@ namespace Traveling_Sales_Person
             int y1;
             int x2;
             int y2;
-            
+
             int xaxis;
             int yaxis;
 
@@ -203,17 +203,24 @@ namespace Traveling_Sales_Person
 
             bool done = false;
 
+            int j = 0;
+            bool notfinished = true;
+
             //Generates the first set of cords to be compared with all other cords
             //TODO loop while true and step through
-            for (iloop = 0; iloop < 10; iloop++)
+
+            //while (notfinished)
+            iloop = 0;
+            while (notfinished)
             {
-                x1 = pos[iloop,0];
-                y1 = pos[iloop,1];
+                
+                x1 = pos[j, 0];
+                y1 = pos[j, 1];
                 done = false;
-                for (int i = 0; i < 10; i++)
+                for (int i = 1; i < 10; i++)
                 {
-                    x2 = pos[i,0];
-                    y2 = pos[i,1];
+                    x2 = pos[i, 0];
+                    y2 = pos[i, 1];
 
                     //X Gets distance between points
                     if (x1 > x2)
@@ -246,6 +253,13 @@ namespace Traveling_Sales_Person
 
                             shortestpos[iloop, 0] = x2;
                             shortestpos[iloop, 1] = y2;
+                            iloop++;
+                            if (iloop == 9)
+                            {
+                                notfinished = false;
+                                break;
+                            }
+                            j = i;
 
                             done = true;
                         }

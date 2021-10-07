@@ -12,6 +12,7 @@ namespace Traveling_Sales_Person
         int[,] shortestpos = new int[10,2];    //These cords will be used to stored the shortest path
         bool haspoints = false;
         int iloop;
+
         public Form1()
         {
             InitializeComponent();
@@ -190,83 +191,47 @@ namespace Traveling_Sales_Person
         }
         public void workoutpoints()
         {
-            int x1;
-            int y1;
-            int x2;
-            int y2;
-
-            int xaxis;
-            int yaxis;
-
-            double hypotenuse;
-            double smallesthypotenuse = 0;
-
-            bool done = false;
-
-            int j = 0;
             bool notfinished = true;
-
-            //Generates the first set of cords to be compared with all other cords
-            //TODO loop while true and step through
-
-            //while (notfinished)
-            iloop = 0;
             while (notfinished)
             {
-                
-                x1 = pos[j, 0];
-                y1 = pos[j, 1];
-                done = false;
-                for (int i = 1; i < 10; i++)
-                {
-                    x2 = pos[i, 0];
-                    y2 = pos[i, 1];
+                int x1 = 0;
+                int y1 = 0;
+                int x2 = 0;
+                int y2 = 0;
 
-                    //X Gets distance between points
-                    if (x1 > x2)
-                    {
-                        xaxis = x1 - x2;
-                    }
-                    else
+                int xaxis = 0;
+                int yaxis = 0;
+
+                double hypotenus;
+                double smallesthypotenus;
+
+
+
+                for (int i = 0; i < 10; i++)
+                {
+                    //Get lenght of line
+                    if (x1 < x2)
                     {
                         xaxis = x2 - x1;
                     }
-
-                    //Y Gets distance between points
-                    if (y1 > y2)
+                    else 
                     {
-                        yaxis = y1 - y2;
+                        xaxis = x1 - x2;
                     }
-                    else
+
+                    if (y1 < y2)
                     {
                         yaxis = y2 - y1;
                     }
-
-                    hypotenuse = (xaxis * xaxis) + (yaxis * yaxis);
-                    hypotenuse = (Math.Sqrt(hypotenuse));
-
-                    if (hypotenuse <= smallesthypotenuse || iloop == 0 || !done)
+                    else
                     {
-                        if (!alreadyused())
-                        {
-                            smallesthypotenuse = hypotenuse;
-
-                            shortestpos[iloop, 0] = x2;
-                            shortestpos[iloop, 1] = y2;
-                            iloop++;
-                            if (iloop == 9)
-                            {
-                                notfinished = false;
-                                break;
-                            }
-                            j = i;
-
-                            done = true;
-                        }
+                        yaxis = y1 - x2;
                     }
+
+                    hypotenus = (xaxis * xaxis) + (yaxis * yaxis);
+                    hypotenus = (Math.Sqrt(hypotenus));                   
                 }
             }
-            drawfinal();
         }
 
         public void Thread1()

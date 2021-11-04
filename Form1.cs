@@ -153,7 +153,7 @@ namespace Traveling_Sales_Person
             int x1;
             int y1;
             int x2;
-            int y2; 
+            int y2;
 
             Random rnd = new Random();
             Pen blackPen = new Pen(Color.White, 2);
@@ -189,55 +189,70 @@ namespace Traveling_Sales_Person
                 Thread.Sleep(10);
             }
         }
+
+        //Cords are stored as such 
+        //pos[0,0] X
+        //pos[0,1] Y
+
         public void workoutpoints()
         {
-            bool notfinished = true;
-            while (notfinished)
+
+            int x1 = 0;
+            int y1 = 0;
+
+            int x2 = 0;
+            int y2 = 0;
+
+            int xaxis = 0;
+            int yaxis = 0;
+
+            double hypotenus;
+            double smallesthypotenus;
+            double totlength = 0;
+
+            for (int i = 0; i < 9; i++)
             {
-                int x1 = 0;
-                int y1 = 0;
-                int x2 = 0;
-                int y2 = 0;
+                x1 = pos[i, 0];
+                y1 = pos[i, 0];
 
-                int xaxis = 0;
-                int yaxis = 0;
-
-                double hypotenus;
-                double smallesthypotenus;
+                x2 = pos[i + 1, 0];
+                y2 = pos[i + 1, 0];
 
 
-
-                for (int i = 0; i < 10; i++)
+                //Get lenght of line
+                if (x1 < x2)
                 {
-                    //Get lenght of line
-                    if (x1 < x2)
-                    {
-                        xaxis = x2 - x1;
-                    }
-                    else 
-                    {
-                        xaxis = x1 - x2;
-                    }
-
-                    if (y1 < y2)
-                    {
-                        yaxis = y2 - y1;
-                    }
-                    else
-                    {
-                        yaxis = y1 - x2;
-                    }
-
-                    hypotenus = (xaxis * xaxis) + (yaxis * yaxis);
-                    hypotenus = (Math.Sqrt(hypotenus));                   
+                    xaxis = x2 - x1;
                 }
+                else
+                {
+                    xaxis = x1 - x2;
+                }
+
+                if (y1 < y2)
+                {
+                    yaxis = y2 - y1;
+                }
+                else
+                {
+                    yaxis = y1 - x2;
+                }
+
+                hypotenus = (xaxis * xaxis) + (yaxis * yaxis);
+                hypotenus = (Math.Sqrt(hypotenus));
+
+                totlength = hypotenus + hypotenus;
+
+                //drawfinal();
+                Thread.Sleep(5);
+                string test;                        
             }
         }
 
         public void Thread1()
         {
-            //Drawfirst();
-            workoutpoints();
+            Drawfirst();
+            //workoutpoints();
         }
 
         public void Thread2()
@@ -252,6 +267,7 @@ namespace Traveling_Sales_Person
                 Thread tid1 = new Thread(new ThreadStart(Thread1));
                 Thread tid2 = new Thread(new ThreadStart(Thread2));
                 tid1.Start();
+
             }
         }
     }

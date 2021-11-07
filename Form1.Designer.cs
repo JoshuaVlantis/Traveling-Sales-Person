@@ -34,6 +34,7 @@ namespace Traveling_Sales_Person
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.image = new System.Windows.Forms.PictureBox();
+            this.richtextlength = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
@@ -83,12 +84,24 @@ namespace Traveling_Sales_Person
             this.image.TabIndex = 3;
             this.image.TabStop = false;
             // 
+            // richtextlength
+            // 
+            this.richtextlength.BackColor = System.Drawing.Color.Black;
+            this.richtextlength.ForeColor = System.Drawing.Color.White;
+            this.richtextlength.Location = new System.Drawing.Point(3, 324);
+            this.richtextlength.Name = "richtextlength";
+            this.richtextlength.ReadOnly = true;
+            this.richtextlength.Size = new System.Drawing.Size(170, 43);
+            this.richtextlength.TabIndex = 4;
+            this.richtextlength.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(677, 527);
+            this.Controls.Add(this.richtextlength);
             this.Controls.Add(this.image);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
@@ -111,6 +124,7 @@ namespace Traveling_Sales_Person
         private System.Windows.Forms.ToolStripMenuItem goToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox image;
+        private System.Windows.Forms.RichTextBox richtextlength;
     }
 }
 

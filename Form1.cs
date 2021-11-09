@@ -252,7 +252,7 @@ namespace Traveling_Sales_Person
             {
                 totsmall = totlength;
                 shortestpos = a;
-              //  richtextlength.Text = totlength.ToString();
+                //  richtextlength.Text = totlength.ToString();
                 drawfinal();
                 Thread.Sleep(5);
             }

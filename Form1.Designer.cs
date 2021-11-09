@@ -34,9 +34,10 @@ namespace Traveling_Sales_Person
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.image = new System.Windows.Forms.PictureBox();
-            this.richtextlength = new System.Windows.Forms.RichTextBox();
+            this.num = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -46,7 +47,7 @@ namespace Traveling_Sales_Person
             this.goToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(677, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -71,37 +72,38 @@ namespace Traveling_Sales_Person
             this.richTextBox1.Location = new System.Drawing.Point(3, 373);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(170, 152);
+            this.richTextBox1.Size = new System.Drawing.Size(179, 152);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // image
             // 
             this.image.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.image.Location = new System.Drawing.Point(176, 27);
+            this.image.Location = new System.Drawing.Point(188, 26);
             this.image.Name = "image";
             this.image.Size = new System.Drawing.Size(500, 500);
             this.image.TabIndex = 3;
             this.image.TabStop = false;
             // 
-            // richtextlength
+            // num
             // 
-            this.richtextlength.BackColor = System.Drawing.Color.Black;
-            this.richtextlength.ForeColor = System.Drawing.Color.White;
-            this.richtextlength.Location = new System.Drawing.Point(3, 324);
-            this.richtextlength.Name = "richtextlength";
-            this.richtextlength.ReadOnly = true;
-            this.richtextlength.Size = new System.Drawing.Size(170, 43);
-            this.richtextlength.TabIndex = 4;
-            this.richtextlength.Text = "";
+            this.num.Location = new System.Drawing.Point(12, 73);
+            this.num.Name = "num";
+            this.num.Size = new System.Drawing.Size(99, 20);
+            this.num.TabIndex = 4;
+            this.num.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(677, 527);
-            this.Controls.Add(this.richtextlength);
+            this.ClientSize = new System.Drawing.Size(689, 527);
+            this.Controls.Add(this.num);
             this.Controls.Add(this.image);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
@@ -110,9 +112,11 @@ namespace Traveling_Sales_Person
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Traveling Salesman";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,7 +128,7 @@ namespace Traveling_Sales_Person
         private System.Windows.Forms.ToolStripMenuItem goToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox image;
-        private System.Windows.Forms.RichTextBox richtextlength;
+        private System.Windows.Forms.NumericUpDown num;
     }
 }
 

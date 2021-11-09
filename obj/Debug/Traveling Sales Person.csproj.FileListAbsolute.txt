@@ -18,3 +18,4 @@ C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sal
 C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sales Person.csproj.CoreCompileInputs.cache
 C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sales Person.exe
 C:\Users\JoshuaV\Documents\GitHub\Traveling-Sales-Person\obj\Debug\Traveling Sales Person.pdb
+C:\Users\Joshua\Documents\Github\Traveling Sales Person\obj\Debug\Traveling Sales Person.csproj.SuggestedBindingRedirects.cache

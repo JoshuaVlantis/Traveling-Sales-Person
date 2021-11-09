@@ -8,13 +8,14 @@ namespace Traveling_Sales_Person
     public partial class Form1 : Form
     {
         Bitmap bmp = new Bitmap(500, 500);
-        int[,] pos = new int[10, 2];            //Cords are stored in a 2d array (X cord on left, Y cord on right)
-        int[,] shortestpos = new int[10, 2];    //These cords will be used to stored the shortest path
-        int[,] temp = new int[10, 2];
+        int[,] pos = new int[100, 2];            //Cords are stored in a 2d array (X cord on left, Y cord on right)
+        int[,] shortestpos = new int[100, 2];    //These cords will be used to stored the shortest path
+
         bool haspoints = false;
         int iloop = 0;
         double totsmall = 0;
         double totlength = 0;
+        int cities;
 
         public Form1()
         {
@@ -23,6 +24,7 @@ namespace Traveling_Sales_Person
 
         public void generatePointsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            cities = Decimal.ToInt32(num.Value);
             Drawdot();
             haspoints = true;
         }
@@ -42,7 +44,7 @@ namespace Traveling_Sales_Person
             Random rnd = new Random();
             Pen redPen = new Pen(Color.Red, 5);
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < cities; i++)
             {
                 x1 = rnd.Next(1, 500);
                 pos[i, 0] = x1;
@@ -62,7 +64,7 @@ namespace Traveling_Sales_Person
 
             image.Image = bmp;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < cities; i++)
             {
                 richTextBox1.AppendText("X pos : " + pos[i, 0].ToString() + "  \t");
                 richTextBox1.AppendText(" Y pos : " + pos[i, 1].ToString() + "\n");
@@ -83,7 +85,7 @@ namespace Traveling_Sales_Person
             Random rnd = new Random();
             Pen redPen = new Pen(Color.Red, 5);
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < cities; i++)
             {
                 x1 = pos[i, 0];
                 y1 = pos[i, 1];
@@ -101,7 +103,7 @@ namespace Traveling_Sales_Person
 
         public bool alreadyused()
         {
-            for (int x = 0; x < 10; x++)
+            for (int x = 0; x < cities; x++)
             {
                 if (pos[iloop, 0] == shortestpos[x, 0] && pos[iloop, 1] == shortestpos[x, 1])
                 {
@@ -134,9 +136,9 @@ namespace Traveling_Sales_Person
 
             totsmall = 0;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < cities; i++)
             {
-                if (i != 9)
+                if (i < cities - 1)
                 {
                     x1 = pos[i, 0];
                     y1 = pos[i, 1];
@@ -147,8 +149,8 @@ namespace Traveling_Sales_Person
                 {
                     x1 = pos[0, 0];
                     y1 = pos[0, 1];
-                    x2 = pos[9, 0];
-                    y2 = pos[9, 1];
+                    x2 = pos[cities - 1, 0];
+                    y2 = pos[cities - 1, 1];
                 }
 
                 //Get lenght of line
@@ -203,13 +205,11 @@ namespace Traveling_Sales_Person
 
             double hypotenus;
 
-            int[,] temp = new int[10, 2];
-
             totlength = 0;
             //change to 10 but watch for array out of range error
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < cities; i++)
             {
-                if (i < 9)
+                if (i < cities - 1)
                 {
                     x1 = a[i, 0];
                     y1 = a[i, 1];
@@ -219,8 +219,8 @@ namespace Traveling_Sales_Person
                 }
                 else
                 {
-                    x1 = a[9, 0];
-                    y1 = a[9, 1];
+                    x1 = a[cities - 1, 0];
+                    y1 = a[cities - 1, 1];
                     x2 = a[0, 0];
                     y2 = a[0, 1];
                 }
@@ -305,11 +305,7 @@ namespace Traveling_Sales_Person
         {
             int[,] a = pos;
 
-            heapPermutation(a, a.Length / 2, a.Length);
-            for (int i = 0; i < 10; i++)
-            {
-
-            }
+            heapPermutation(a, cities, a.Length);
         }
 
         public void drawfinal()
@@ -327,9 +323,9 @@ namespace Traveling_Sales_Person
             Random rnd = new Random();
             Pen blackPen = new Pen(Color.White, 2);
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < cities; i++)
             {
-                if (i < 9)
+                if (i < cities - 1)
                 {
                     x1 = shortestpos[i, 0];
                     y1 = shortestpos[i, 1];
@@ -341,8 +337,8 @@ namespace Traveling_Sales_Person
                 {
                     x1 = shortestpos[0, 0];
                     y1 = shortestpos[0, 1];
-                    x2 = shortestpos[9, 0];
-                    y2 = shortestpos[9, 1];
+                    x2 = shortestpos[cities - 1, 0];
+                    y2 = shortestpos[cities - 1, 1];
                 }
 
                 // Draw line to screen.
@@ -378,6 +374,11 @@ namespace Traveling_Sales_Person
                 Thread tid2 = new Thread(new ThreadStart(Thread2));
                 tid1.Start();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

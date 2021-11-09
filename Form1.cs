@@ -7,15 +7,18 @@ namespace Traveling_Sales_Person
 {
     public partial class Form1 : Form
     {
+        //Ignore Global I suck at threading 
         Bitmap bmp = new Bitmap(500, 500);
         int[,] pos = new int[100, 2];            //Cords are stored in a 2d array (X cord on left, Y cord on right)
         int[,] shortestpos = new int[100, 2];    //These cords will be used to stored the shortest path
 
         bool haspoints = false;
-        int iloop = 0;
+        
         double totsmall = 0;
         double totlength = 0;
+        
         int cities;
+        int iloop = 0;
 
         public Form1()
         {
@@ -27,6 +30,7 @@ namespace Traveling_Sales_Person
             cities = Decimal.ToInt32(num.Value);
             Drawdot();
             haspoints = true;
+            richlength.Clear();
         }
 
         public void Drawdot()
@@ -134,8 +138,6 @@ namespace Traveling_Sales_Person
             int xaxis = 0;
             int yaxis = 0;
 
-            totsmall = 0;
-
             for (int i = 0; i < cities; i++)
             {
                 if (i < cities - 1)
@@ -183,9 +185,8 @@ namespace Traveling_Sales_Person
                     graphics.DrawLine(blackPen, x1, y1, x2, y2);
                 }
 
-                //Thread2();
-                //Thread.Sleep(10);
-                //workoutpoints();
+                Thread2();
+                Thread.Sleep(20);
             }
             shortestpos = pos;
             Main();
@@ -248,13 +249,18 @@ namespace Traveling_Sales_Person
                 hypotenus = (Math.Sqrt(hypotenus));
                 totlength += hypotenus;
             }
-            if (totlength <= totsmall)
+            if (totlength < totsmall)
             {
                 totsmall = totlength;
                 shortestpos = a;
-                //  richtextlength.Text = totlength.ToString();
+
+                if (richlength.InvokeRequired)
+                {
+                    richlength.Invoke(new MethodInvoker(delegate { richlength.AppendText (totlength.ToString() +"\n"); }));
+                    richlength.Invoke(new MethodInvoker(delegate { richlength.ScrollToCaret(); }));
+                }
                 drawfinal();
-                Thread.Sleep(5);
+                Thread.Sleep(20);
             }
 
         }

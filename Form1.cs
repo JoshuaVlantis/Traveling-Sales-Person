@@ -377,7 +377,9 @@ namespace Traveling_Sales_Person
             if (haspoints)
             {
                 Thread tid1 = new Thread(new ThreadStart(Thread1));
+                tid1.IsBackground = true;
                 Thread tid2 = new Thread(new ThreadStart(Thread2));
+                tid2.IsBackground = true;
                 tid1.Start();
             }
         }
